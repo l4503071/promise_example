@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<h1 style="text-align: center">Promise对象创建方法(需要以服务器方式启动)</h1>
+	<hr>
+	<script src="..\node_modules\jquery\dist\jquery.min.js"></script>
+	<script>
+		let promise=Promise.resolve($.ajax('data.json'));
+		promise.then(function(value){
+			document.body.append(value);
+		});
+
+		Promise.reject(new Error('error...')).catch(function(error){
+			document.body.append(error);
+		});
+	</script>
+</body>
+</html>

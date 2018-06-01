@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<h1 style="text-align: center">传值</h1>
+	<hr>
+	<script>
+		function taskA(){
+			let num=10;
+			document.body.append('taskA  ' + num);
+			throw new Error('taskA error  ')
+			return num;
+		}
+		function taskB(num){
+			document.body.append('taskB  '+num*2);
+			return num*2;
+		}
+		function taskC(num){
+			document.body.append('taskC  '+(num+1));
+			return num+1;
+		}
+		function taskCatch(num){
+			document.body.append('task catch  '+num);
+			return num;
+		}
+		let promise=Promise.resolve();
+		promise.then(taskA).then(taskB).catch(taskCatch).then(taskC);
+	</script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<h1 style="text-align: center">Promise.all,Promise.race</h1>
+	<hr>
+	<script>
+		function timeDelay(delay){
+			return new Promise(function(resolve,reject){
+				setTimeout(function(){
+					if(delay > 1000){
+						reject('error'+delay);
+						console.log(delay);
+					}
+					else {
+						resolve(delay);
+						console.log(delay);
+					}
+				}, delay);		
+			});
+		}
+		Promise.all([timeDelay(1000),timeDelay(2000),timeDelay(3000)]).then(function(val){
+			document.body.append(val);
+		}).catch(function(error){
+			document.body.append(error);
+		});
+	</script>
+</body>
+</html>

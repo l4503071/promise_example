@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<h1 style="text-align: center">异常情况</h1>
+	<hr>
+	<script>
+		function taskA(){
+			document.body.append('taskA  ');
+			throw new Error('taskA error  ')
+		}
+		function taskB(){
+			document.body.append('taskB  ');
+		}
+		function taskC(){
+			document.body.append('taskC  ');
+		}
+		function taskCatch(){
+			document.body.append('task catch  ');
+		}
+		let promise=Promise.resolve();
+		promise.then(taskA).then(taskB).catch(taskCatch).then(taskC);
+	</script>
+</body>
+</html>

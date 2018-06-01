@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<h1 style="text-align: center">基本用法</h1>
+	<hr>
+	<script>
+		function asyncFunction(){
+			return new Promise(function(resolve,reject){
+				setTimeout(function(){
+					resolve("Async function...")
+				},1000);
+			});
+		}
+		asyncFunction().then(function(value){
+			document.body.append(value);
+		}).catch(function(error){
+			alert(error);
+		});
+	</script>
+</body>
+</html>

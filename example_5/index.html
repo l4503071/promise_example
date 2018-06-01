@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<h1 style="text-align: center">链式调用</h1>
+	<hr>
+	<script>
+		let promise=new Promise(function(resolve){
+			resolve(100);
+		});
+		//非链式调用
+		promise.then(function(num){
+			document.body.append('thenA  ' + num);
+			return num;
+		});
+		promise.then(function(num){
+			document.body.append('thenB  ' + num);
+			return num+1;
+		});
+		promise.then(function(num){
+			document.body.append('thenC  ' + num);
+			return num+1;
+		});
+		//链式调用
+		promise.then(function(num){
+			document.body.append('thenD  ' + num);
+			return num+50;
+		}).then(function(num){
+			document.body.append('thenF  ' + num);
+		});
+	</script>
+</body>
+</html>
